@@ -1,0 +1,15 @@
+
+.menu {
+  height: 40px;
+  min-height: 40px;
+  margin: 0 10px;
+  background-color: white;
+  border-radius: 8px;
+  opacity: 0.3;
+  transition: opacity 0.25s ease;
+
+  &:hover {
+    transition: opacity 0.25s ease;
+    opacity: 1;
+  }
+}

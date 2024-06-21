@@ -1,0 +1,17 @@
+@import url("/components/dropzone/dropzone.css");
+@import url("/components/emptyScreen/emptyScreen.css");
+@import url("/components/tokens/tokens.css");
+@import url("/components/menu/menu.css");
+
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family:  "Fira Code", "Arial", monospace;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+}
