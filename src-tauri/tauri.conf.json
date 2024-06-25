@@ -20,17 +20,20 @@
         "open": true
       },
       "window": {
-        "startDragging": true
+        "startDragging": true,
+        "hide": true,
+        "close": true
       }
     },
     "windows": [
       {
         "title": "otphub",
-        "width": 800,
-        "height": 600,
+        "width": 350,
+        "height": 530,
         "resizable": true,
         "transparent": true,
-        "decorations": false
+        "decorations": false,
+        "fileDropEnabled": false
       }
     ],
     "security": {

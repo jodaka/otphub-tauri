@@ -4,6 +4,8 @@ const TOKEN_GRADIENT_START = "#7B8ACE";
 const TOKEN_GRADIENT_END = "#515DB0";
 const HUE_STEP = 45;
 
+let windowIsVisible = true;
+
 class Token {
   token;
   config;
@@ -91,22 +93,38 @@ export const Tokens = (wrapper, tokens = []) => {
       const index = tokenWrapper.getAttribute("index");
       const token = tokenInstances[index];
 
-      window.__TAURI__.clipboard
-        .writeText(token.token)
-        .then(() =>
-          window.__TAURI__.notification.sendNotification({
-            title: token.totp.label,
-            body: "Copied!",
-          }),
-        )
-        .catch((err) => console.error(err));
+      window.__TAURI__.clipboard.writeText(token.token);
+      //     window.__TAURI__.notification.sendNotification({
+      //       title: token.totp.label,
+      //       body: "Copied!",
+      //     }),
+      //   )
+      //   .catch((err) => console.error(err));
+
+      // const valueWrapper = tokenWrapper.querySelector(".token__value");
+      token.tokenValueRef.innerText = "Copied";
+
+      setTimeout(() => {
+        token.tokenValueRef.innerHTML = token.renderToken();
+      }, 2500);
     }
   });
 
   // rerender only counter 5 times per second
   setInterval(() => {
+    if (!windowIsVisible) {
+      return;
+    }
     tokenInstances.forEach((instance) => {
       instance.updateCounter();
     });
   }, 200);
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      windowIsVisible = false;
+    } else {
+      windowIsVisible = true;
+    }
+  });
 };

@@ -49,7 +49,6 @@ export class Dropzone {
   handleDragOver(event) {
     event.preventDefault();
     event.stopPropagation();
-
     if (!this.hoverClassAdded) {
       this.wrapper.classList.add(HOVER_CLASSNAME);
       this.hoverClassAdded = true;
@@ -95,9 +94,9 @@ export class Dropzone {
         this.storedTokens.push(token);
       }
     });
-
+    console.log(123123, "import tokens", this.importedTokens);
     this.saveTokensCallback(this.importedTokens);
-    // location.reload();
+    location.reload();
   }
 
   renderImportDialog() {
