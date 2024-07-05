@@ -99,3 +99,7 @@
 .menu__buttonsWrapper:hover .menu__button--close:before {
   transform: rotate(45deg);
 }
+
+.menu__title {
+  padding-right: 10px;
+}
