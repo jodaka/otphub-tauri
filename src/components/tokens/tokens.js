@@ -23,7 +23,7 @@ const handleTokenClick = (e, tokenInstances) => {
     token.tokenValueRef.innerText = "Copied";
 
     setTimeout(() => {
-      token.tokenValueRef.innerHTML = token.renderToken();
+      token.tokenValueRef.innerHTML = token.getTokenHTML();
     }, 2500);
   }
 };
