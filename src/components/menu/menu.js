@@ -33,7 +33,9 @@ export class Menu {
         <div class="menu__button menu__button--close"></div>
         <div class="menu__button menu__button--minimize"></div>
       </div>
-      <div class="menu__title">otphup</div>
+      <div class="menu__title">
+        <img src="img/otphub.svg" class="menu__logo" />
+      </div>
       `;
 
     this.titleRef = this.wrapper.querySelector(".menu__title");
