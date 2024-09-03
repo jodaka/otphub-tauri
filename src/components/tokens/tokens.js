@@ -54,7 +54,7 @@ export const Tokens = (wrapper, tokens = []) => {
           instance.updateCounter();
         });
       }
-    }, 300);
+    }, 80);
   };
 
   let visibilityObserver;
