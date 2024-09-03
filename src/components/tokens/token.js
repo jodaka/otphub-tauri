@@ -9,6 +9,7 @@ export class Token {
   config;
   remaining;
   isInViewport = false;
+  needTokenUpdate = false;
 
   constructor(config, index) {
     this.config = config;
@@ -33,6 +34,7 @@ export class Token {
       this.token = newToken;
       this.tokenValueRef.innerHTML = this.getTokenHTML();
     }
+    this.needTokenUpdate = false;
   }
 
   getTokenHTML() {
@@ -50,7 +52,10 @@ export class Token {
 
     // skip rendering of element is not visible
     if (!this.isInViewport) {
+      this.needTokenUpdate = true;
       return;
+    } else if (this.needTokenUpdate) {
+      this.renderToken();
     }
 
     this.counterRef.style = `--value: ${this.totp.period - remaining};`;
